@@ -57,6 +57,7 @@ if (empty($_SESSION["cart"]) || !isset($_SESSION["cart"])) {
             padding-left: 40px;
             color: #4361EE;
         }
+
         nav h1 span {
             color: #3A0CA3;
         }
@@ -74,7 +75,7 @@ if (empty($_SESSION["cart"]) || !isset($_SESSION["cart"])) {
             margin-right: 5px;
         }
 
-        nav a{
+        nav a {
             width: 40px;
             height: 40px;
             background-color: #3A0CA395;
@@ -87,9 +88,11 @@ if (empty($_SESSION["cart"]) || !isset($_SESSION["cart"])) {
             place-items: center;
             border-radius: 5px;
         }
-        nav div a:nth-child(3){
+
+        nav div a:nth-child(3) {
             margin-right: 40px;
         }
+
         .container {
             width: 100%;
             height: auto;
@@ -238,7 +241,7 @@ if (empty($_SESSION["cart"]) || !isset($_SESSION["cart"])) {
         foreach ($_SESSION['cart'] as $id_barang => $kuantitas) : ?>
             <?php
             $data = query("SELECT * FROM barang WHERE id_barang = '$id_barang'")[0];
-            $totalHarga = $data['harga_satuan'] * $kuantitas;
+            $totalHarga = $data['harga_barang'] * $kuantitas;
             $grandTotal += $totalHarga;
             ?>
             <div class="list">
@@ -247,7 +250,7 @@ if (empty($_SESSION["cart"]) || !isset($_SESSION["cart"])) {
                 </div>
                 <div class="isi">
                     <h1>Laptop <?= $data["jenis_barang"]; ?></h1>
-                    <h3>Rp. <?= number_format($data["harga_satuan"]); ?>,-</h3>
+                    <h3>Rp. <?= number_format($data["harga_barang"]); ?>,-</h3>
                     <p>Beli <?= $kuantitas; ?> Barang</p>
                     <p class="th">Total Harga</p>
                     <h3>Rp. <?= number_format($totalHarga); ?> ,-</h3>

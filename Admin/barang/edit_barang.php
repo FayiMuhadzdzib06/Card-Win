@@ -91,7 +91,8 @@ if (isset($_POST['submit'])) {
             color: #fff;
             border-radius: 50px;
         }
-        .box [foto]{
+
+        .box [foto] {
             padding: 15px 20px;
         }
 
@@ -124,7 +125,7 @@ if (isset($_POST['submit'])) {
             <label for="">Jenis Barang</label><br>
             <input type="text" name="jenis_barang" value="<?= $data['jenis_barang']; ?>"><br>
             <label for="">Harga Satuan</label><br>
-            <input type="number" name="harga_satuan" value="<?= $data['harga_satuan']; ?>"><br>
+            <input type="number" name="harga_barang" value="<?= $data['harga_barang']; ?>"><br>
             <label for="">Stok Barang</label><br>
             <input type="number" name="stok_barang" value="<?= $data['stok_barang']; ?>"><br>
             <label for="">Foto Barang</label><br>

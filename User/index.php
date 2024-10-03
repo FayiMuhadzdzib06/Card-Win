@@ -1,13 +1,13 @@
-<?php 
-    include '../koneksi.php';
-    if(!isset($_SESSION['status'])){
-        ?>
-        <script>
-            alert('Silahkan Login Terlebih Dahulu!!!');
-            window.location = '../index.php';
-        </script>
-        <?php
-    }
+<?php
+include '../koneksi.php';
+if (!isset($_SESSION['status'])) {
+?>
+    <script>
+        alert('Silahkan Login Terlebih Dahulu!!!');
+        window.location = '../index.php';
+    </script>
+<?php
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,6 +56,7 @@
             margin-left: 30px;
             color: #4361EE;
         }
+
         nav h1 span {
             color: #3A0CA3;
         }
@@ -116,7 +117,7 @@
             margin-right: 5px;
         }
 
-        nav a{
+        nav a {
             width: 40px;
             height: 40px;
             background-color: #3A0CA395;
@@ -129,10 +130,11 @@
             place-items: center;
             border-radius: 5px;
         }
-        nav div a:nth-child(3){
+
+        nav div a:nth-child(3) {
             margin-right: 30px;
         }
-        
+
         .hero {
             width: calc(100% - 60px);
             height: 400px;
@@ -185,10 +187,12 @@
             background-repeat: no-repeat;
             background-position: 0px 15px;
         }
+
         .np {
             color: #455045;
             padding: 30px 40px;
         }
+
         ul .produk {
             width: 100%;
             display: flex;
@@ -198,6 +202,7 @@
             margin: -60px auto 50px;
             padding: 0 10px;
         }
+
         ul .produk .list-produk {
             width: 200px;
             height: auto;
@@ -205,9 +210,10 @@
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, .2);
             margin-left: 18px;
-            margin-top:60px;
+            margin-top: 60px;
         }
-        ul .produk .list-produk li:nth-child(1){
+
+        ul .produk .list-produk li:nth-child(1) {
             width: calc(100% - 30px);
             height: 150px;
             margin: 15px auto 10px;
@@ -217,26 +223,31 @@
             background-color: #4CC9F055;
             border-radius: 10px;
         }
-        ul .produk .list-produk #iHbs{
+
+        ul .produk .list-produk #iHbs {
             background-color: #f7258535;
             border: 2px solid #f72585;
         }
+
         ul .produk .list-produk li:nth-child(1) img {
             width: 70%;
             height: auto;
         }
-        ul .produk .list-produk li:nth-child(2){
+
+        ul .produk .list-produk li:nth-child(2) {
             padding: 5px 17px 10px;
             font-weight: bold;
             font-size: 18px;
         }
-        ul .produk .list-produk li:nth-child(3){
+
+        ul .produk .list-produk li:nth-child(3) {
             padding: 0 18px 10px;
             font-weight: bold;
             color: rgba(0, 0, 0, .5);
             font-size: 18px;
         }
-        ul .produk .list-produk li:nth-child(4){
+
+        ul .produk .list-produk li:nth-child(4) {
             width: 100%;
             height: 50px;
             margin: 10px 0 12px;
@@ -244,7 +255,8 @@
             align-items: center;
             justify-content: center;
         }
-        ul .produk .list-produk li:nth-child(4) a:nth-child(1){
+
+        ul .produk .list-produk li:nth-child(4) a:nth-child(1) {
             width: calc(100% - 30px);
             height: 40px;
             border: 2px solid #4361EE55;
@@ -255,7 +267,8 @@
             color: #4361EE;
             /* font-weight: bold; */
         }
-        ul .produk .list-produk li:nth-child(4) .habis{
+
+        ul .produk .list-produk li:nth-child(4) .habis {
             width: calc(100% - 30px);
             height: 40px;
             border-radius: 5px;
@@ -263,10 +276,11 @@
             display: grid;
             place-items: center;
             color: #fff;
-            cursor:no-drop;
+            cursor: no-drop;
         }
-        </style>
+    </style>
 </head>
+
 <body>
     <nav>
         <h1>Lap<span>store</span></h1>
@@ -307,28 +321,28 @@
             }
             $no = 1;
             while ($row = mysqli_fetch_array($data)) {
-                if($row['stok_barang'] == 0){
-                    ?>
-                        <ul class="list-produk hbs">
-                            <li id="iHbs"><img src="../images/<?= $row['foto']; ?>" alt="" width="70px"></li>
-                            <li><?php echo $row['jenis_barang']; ?></li>
-                            <li><?php echo "Rp. " . number_format($row['harga_satuan']) . " ,-" ?></li>
-                            <li>
-                                <p class="habis">Stok Telah Habis</p>
-                            </li>
-                        </ul>
-                    <?php
-                }else{
-                    ?>
-                        <ul class="list-produk">
-                            <li><img src="../images/<?= $row['foto']; ?>" alt="" width="70px"></li>
-                            <li><?php echo $row['jenis_barang']; ?></li>
-                            <li><?php echo "Rp. " . number_format($row['harga_satuan']) . " ,-" ?></li>
-                            <li>
-                                <a href="detail.php?id_barang=<?= $row['id_barang']; ?>">Detail</a>
-                            </li>
-                        </ul>
-                    <?php
+                if ($row['stok_barang'] == 0) {
+            ?>
+                    <ul class="list-produk hbs">
+                        <li id="iHbs"><img src="../images/<?= $row['foto']; ?>" alt="" width="70px"></li>
+                        <li><?php echo $row['jenis_barang']; ?></li>
+                        <li><?php echo "Rp. " . number_format($row['harga_barang']) . " ,-" ?></li>
+                        <li>
+                            <p class="habis">Stok Telah Habis</p>
+                        </li>
+                    </ul>
+                <?php
+                } else {
+                ?>
+                    <ul class="list-produk">
+                        <li><img src="../images/<?= $row['foto']; ?>" alt="" width="70px"></li>
+                        <li><?php echo $row['jenis_barang']; ?></li>
+                        <li><?php echo "Rp. " . number_format($row['harga_barang']) . " ,-" ?></li>
+                        <li>
+                            <a href="detail.php?id_barang=<?= $row['id_barang']; ?>">Detail</a>
+                        </li>
+                    </ul>
+            <?php
                 }
             }
             ?>

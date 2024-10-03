@@ -2,19 +2,19 @@
 include '../../koneksi.php';
 if (isset($_POST['submit'])) {
     if (tambahBarang($_POST) > 0) {
-        ?>
-            <script>
-                alert("Barang Berhasi Ditambahkan!!");
-                window.location = '../index.php';
-            </script>
-        <?php
+?>
+        <script>
+            alert("Barang Berhasi Ditambahkan!!");
+            window.location = '../index.php';
+        </script>
+    <?php
     } else {
-        ?>
-            <script>
-                alert("Barang Gagal Ditambahkan!!");
-                window.location = '../index.php';
-            </script>
-        <?php
+    ?>
+        <script>
+            alert("Barang Gagal Ditambahkan!!");
+            window.location = '../index.php';
+        </script>
+<?php
     }
 }
 ?>
@@ -88,7 +88,8 @@ if (isset($_POST['submit'])) {
             color: #fff;
             border-radius: 50px;
         }
-        .box [foto]{
+
+        .box [foto] {
             padding: 15px 20px;
         }
 
@@ -120,7 +121,7 @@ if (isset($_POST['submit'])) {
             <label for="">Jenis Barang</label><br>
             <input type="text" name="jenis_barang"><br>
             <label for="">Harga Satuan</label><br>
-            <input type="number" name="harga_satuan"><br>
+            <input type="number" name="harga_barang"><br>
             <label for="">Stok Barang</label><br>
             <input type="number" name="stok_barang"><br>
             <label for="">Foto Barang</label><br>

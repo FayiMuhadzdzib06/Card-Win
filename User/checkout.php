@@ -94,7 +94,8 @@ include '../koneksi.php';
             border: 1px solid #fff;
             margin: 30px auto;
         }
-        .gambar{
+
+        .gambar {
             width: calc(100% - 100px);
             height: 300px;
             margin: 0 auto 20px;
@@ -103,7 +104,8 @@ include '../koneksi.php';
             border-radius: 5px;
             background-color: #ffffff55;
         }
-        .gambar img{
+
+        .gambar img {
             width: 350px;
         }
     </style>
@@ -113,18 +115,18 @@ include '../koneksi.php';
     <div class="box">
         <h2>Checkout</h2>
         <label for="">Tanggal Transaksi</label><br>
-        <input type="date" name="tgl_transaksi" disabled value="<?= date('Y-m-d'); ?>">
+        <input type="date" name="tanggal" disabled value="<?= date('Y-m-d'); ?>">
         <hr>
         <?php foreach ($_SESSION["cart"] as $product_id => $kuantitas) : ?>
             <?php
             $data = query("SELECT * FROM barang WHERE id_barang = '$product_id'")[0];
-            $subTotal = $data['harga_satuan'] * $kuantitas;
+            $subTotal = $data['harga_barang'] * $kuantitas;
             ?>
             <div class="gambar">
                 <img src="../images/<?= $data['foto']; ?>" alt="">
             </div>
             <form action="proses_checkout.php" method="post">
-                <input type="hidden" name="tgl_transaksi" value="<?= date('Y-m-d'); ?>">
+                <input type="hidden" name="tanggal" value="<?= date('Y-m-d'); ?>">
                 <input type="hidden" name="id_user" value="<?= $_SESSION['id_user']; ?>">
                 <input type="hidden" name="id_barang" value="<?= $product_id; ?>">
 
@@ -132,11 +134,11 @@ include '../koneksi.php';
                 <input type="text" name="jenis_barang" value="<?= $data['jenis_barang']; ?>" disabled><br>
 
                 <label for="">Harga Satuan</label><br>
-                <input type="number" name="harga_satuan" value="<?= $data['harga_satuan']; ?>" disabled><br>
+                <input type="number" name="harga_barang" value="<?= $data['harga_barang']; ?>" disabled><br>
 
                 <label for="">Jumlah Barang</label><br>
                 <input type="number" value="<?= $kuantitas; ?>" disabled><br>
-                <input type="hidden" name="jmlh_barang" value="<?= $kuantitas; ?>">
+                <input type="hidden" name="qty" value="<?= $kuantitas; ?>">
 
                 <label for="">Total Harga</label><br>
                 <input type="number" name="total_harga" value="<?= $subTotal; ?>" disabled>

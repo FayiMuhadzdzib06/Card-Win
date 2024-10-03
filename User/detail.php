@@ -47,7 +47,8 @@ $data = query("SELECT * FROM barang WHERE id_barang= '$id'")[0];
             place-items: center;
 
         }
-        .container .gambar img{
+
+        .container .gambar img {
             width: 250px;
             height: auto;
         }
@@ -57,24 +58,29 @@ $data = query("SELECT * FROM barang WHERE id_barang= '$id'")[0];
             height: 100%;
             background-color: #fff;
         }
-        .container .isi h1{
+
+        .container .isi h1 {
             font-size: 2.3em;
             padding: 15px 20px 10px;
         }
-        .container .isi h3{
+
+        .container .isi h3 {
             padding: 5px 0 10px 20px;
             font-size: 1.3em;
         }
+
         .container .isi p {
             padding: 0 0 0 20px;
             color: #4361EE;
         }
+
         .container .isi label {
             display: block;
             padding: 10px 0 0 20px;
             color: #00000055;
         }
-        .container .isi input{
+
+        .container .isi input {
             display: block;
             margin: 0 0 0 20px;
             width: calc(100% - 50px);
@@ -84,9 +90,11 @@ $data = query("SELECT * FROM barang WHERE id_barang= '$id'")[0];
             color: #000;
             outline: none;
         }
-        .container .isi input:focus{
+
+        .container .isi input:focus {
             border: 2px solid #4361EE85;
         }
+
         .container .isi button {
             padding: 10px 20px;
             background-color: #4CC9F0;
@@ -108,7 +116,7 @@ $data = query("SELECT * FROM barang WHERE id_barang= '$id'")[0];
             </div>
             <div class="isi">
                 <h1>Laptop <?= $data["jenis_barang"]; ?></h1>
-                <h3>Rp. <?= number_format($data["harga_satuan"]); ?>,-</h3>
+                <h3>Rp. <?= number_format($data["harga_barang"]); ?>,-</h3>
                 <p>Tersisa <?= $data["stok_barang"]; ?> Stok</p>
                 <label for="">Masukkan Jumlah Barang</label>
                 <input type="number" name="qty" value="1" min="1">
