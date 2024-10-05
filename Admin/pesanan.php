@@ -98,7 +98,7 @@ if (!isset($_SESSION['status'])) {
         table tr th {
             height: 70px;
             color: #ffffff;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         table tr th:nth-child(1) {
@@ -152,6 +152,16 @@ if (!isset($_SESSION['status'])) {
             font-weight: bold;
             margin: 0 0 0 50px;
         }
+
+        .tajuk2 {
+            width: max-content;
+            padding: 12px 10px;
+            background-color: #3A0CA3;
+            border: 1px solid #4361EE;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -196,8 +206,8 @@ if (!isset($_SESSION['status'])) {
                     <td>Rp. <?= number_format($row['total_harga']); ?> ,-</td>
                     <td><?= $row['status']; ?></td>
                     <td>
-                        <a href="verif.php?id_transaksi=<?= $row['id_transaksi']; ?>">Accept</a>
-                        <a href="tolak.php?id_transaksi=<?= $row['id_transaksi']; ?>">Decline</a>
+                        <a href="verif.php?id_transaksi=<?= $row['id_transaksi']; ?>" style="font-size: 10px;">Accept</a>
+                        <a href="tolak.php?id_transaksi=<?= $row['id_transaksi']; ?>" style="font-size: 10px;">Decline</a>
                     </td>
                 </tr>
             <?php
@@ -205,7 +215,10 @@ if (!isset($_SESSION['status'])) {
             ?>
         </table>
         <!-- Verifikasi -->
-        <p class="tajuk">Pesanan Yang Sudah Di Verifikasi <a href="cetak_transaksi.php">Cetak</a></p>
+        <div style="display: flex; gap: 10px; align-items:center;">
+            <p class="tajuk">Pesanan Yang Sudah Di Verifikasi </p>
+            <a href="cetak_transaksi.php" class="tajuk2">Cetak</a>
+        </div>
         <table cellpadding="10" cellspacing="0" l>
             <tr class="atas">
                 <th>No</th>
